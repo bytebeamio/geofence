@@ -4,13 +4,13 @@
 typedef struct point {
     double x;
     double y;
-} point, *point_ptr;
+} point;
 
-typedef struct polygon {
-    size_t number_of_vertices;
-    point vertices[];
-} polygon, *polygon_ptr;
+bool is_point_in_polygon(point *p_ptr, const point *vertices, size_t number_of_vertices);
+bool is_position_in_geofence(point *p_ptr, const point *vertices, size_t number_of_vertices);
+double lat2y_m(double lat); 
+double lon2x_m(double lon);
 
-bool is_inside(point_ptr p_ptr, polygon_ptr poly_ptr);
+#define polygon_size(p) (sizeof(p)/sizeof(point))
 
 #endif
